@@ -15,6 +15,7 @@ namespace ATM
             this.id = id;
             this.password = password;
             balance = 0;
+            Console.WriteLine("Account was created succesfully");
         }
         public void generateCard() {
             Console.WriteLine("Choose a PIN please");
