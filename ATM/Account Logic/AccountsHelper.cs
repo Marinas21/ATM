@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ATM
+namespace ATM.NewFolder
 {
     internal class AccountsHelper
     {

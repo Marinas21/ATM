@@ -4,14 +4,9 @@ using System.Text;
 
 namespace ATM
 {
-    public class ATMHelper
+    public class DisplayMenu
     {
-        private ATM atm;
-        public ATMHelper() {
-            atm = new ATM();
-            displayMenu();
-        }
-        private void displayMenu()
+        public static void displayMenu()
         {
             Console.WriteLine("Hello, what can we do today for you?");
             Console.WriteLine("1- Create Account");
@@ -20,7 +15,7 @@ namespace ATM
             Console.WriteLine("4 - Exit");
             chooseOption();
         }
-        private void chooseOption()
+        private static void chooseOption()
         {
             string option = Console.ReadLine();
             switch (option)
