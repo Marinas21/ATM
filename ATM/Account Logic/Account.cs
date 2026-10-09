@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ATM.NewFolder
 {
-    internal class Account
+    public class Account
     {
         private decimal balance;
         private List<Card> cards;

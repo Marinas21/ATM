@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            ATMHelper atm = new ATMHelper();
+            ATM atm = new ATM();
+            DisplayMenu.displayMenu(atm);
         }
     }
 }

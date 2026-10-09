@@ -6,12 +6,15 @@ using System.Text;
 
 namespace ATM
 {
-    internal class Person
+    public class Person
     {
         private string firstName;
         private string lastName;
         private Account account;
         private string id;
+        public Person()
+        {
+        }
         public Person(string firstName, string lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
