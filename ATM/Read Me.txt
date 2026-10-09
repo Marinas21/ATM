@@ -1,0 +1,20 @@
+Starting point into the app is throgh Program file
+After that we go to the menu class which should be a static class because we don't do much with it and it's used only as a brige between the program and 
+the rest of the functionality
+
+-----------------------------------
+PERSON CLASS
+After that we finnaly arrive in the ATM class
+here we only should keep the logic to create a new Person and Account
+In the Atm helper we should keep the logic to generate things and logg the person in their accounts
+
+------------------------------------
+ACCOUNT CLASS
+In the Account class we should keep the logic to create an account
+And in the Account Helper to create a card and set that account to the person
+Eventualy to delete the account
+
+------------------------------------
+CARD CLASS
+In the card class we should keep the logic to create a new card and set it to a person
+and in the Card Helper we should keep the logic to make payments to other accounts.
