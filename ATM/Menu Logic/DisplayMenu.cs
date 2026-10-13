@@ -41,7 +41,8 @@ namespace ATM
                     Console.WriteLine("Please insert a valid option");
                     break;
             }
-            displayMenu(atm);
+            if(option!="4")
+                displayMenu(atm);
         }
     }
 }

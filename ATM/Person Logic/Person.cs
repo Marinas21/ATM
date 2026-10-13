@@ -19,6 +19,9 @@ namespace ATM
             this.firstName = firstName;
             this.lastName = lastName;
         }
+        public string getFullName() {
+            return firstName + " " + lastName;
+        }
         public string getId() {
             return id;
         }
@@ -43,6 +46,16 @@ namespace ATM
         }
         public void deleteAccount() {
             account = null;
+        }
+        public void createCard() {
+            account.generateCard();
+        }
+        public double getBalance() {
+            return account.getTotalBalance();
+        }
+        public Card searchCard(string cardNumber)
+        {
+            return account.searchCard(cardNumber);
         }
     }
 }
