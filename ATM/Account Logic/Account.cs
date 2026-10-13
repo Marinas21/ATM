@@ -23,5 +23,18 @@ namespace ATM.NewFolder
             Card card = new Card(pin);
             cards.Add(card);
         }
+        public Card searchCard(string cardNumber) {
+            foreach (Card card in cards) {
+                if (card.getCardNumber() == cardNumber) return card;
+            }
+            return null;
+        }
+        public double getTotalBalance() {
+            double balance = 0;
+            foreach (Card c in cards) {
+                balance += c.getBalance();
+            }
+            return balance;
+        }
     }
 }

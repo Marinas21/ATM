@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ATM
 {
-    internal class Card
+    public class Card
     {
         private string pin;
         private double balance;
@@ -16,6 +16,9 @@ namespace ATM
             this.balance = 0;
             this.cardNumber = generateCardNumber();
             this.expirationDate = generateExpirationDate();
+        }
+        public string getCardNumber() {
+            return cardNumber;
         }
         private string generateCardNumber()
         {
@@ -33,5 +36,14 @@ namespace ATM
             DateTime expiration = DateTime.Now.AddYears(4);
             return expiration.ToString("MM/yy");
         }
+        public double getBalance() {
+            return balance;
+        }
+
+        public void getCard(string cardNumber) {
+        
+        }
+        public bool checkPin(string pin) {
+            return pin == this.pin;
     }
 }
