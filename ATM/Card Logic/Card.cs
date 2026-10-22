@@ -11,13 +11,15 @@ namespace ATM
         private string cardNumber;
         private string expirationDate;
 
-        public Card(string pin) {
+        public Card(string pin)
+        {
             this.pin = pin;
             this.balance = 0;
             this.cardNumber = generateCardNumber();
             this.expirationDate = generateExpirationDate();
         }
-        public string getCardNumber() {
+        public string getCardNumber()
+        {
             return cardNumber;
         }
         private string generateCardNumber()
@@ -36,14 +38,18 @@ namespace ATM
             DateTime expiration = DateTime.Now.AddYears(4);
             return expiration.ToString("MM/yy");
         }
-        public double getBalance() {
+        public double getBalance()
+        {
             return balance;
         }
 
-        public void getCard(string cardNumber) {
-        
+        public void getCard(string cardNumber)
+        {
+
         }
-        public bool checkPin(string pin) {
+        public bool checkPin(string pin)
+        {
             return pin == this.pin;
+        }
     }
 }

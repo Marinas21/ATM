@@ -7,25 +7,26 @@ namespace ATM
 {
     public class ATM
     {
-        private List<Person> clients;
+        private Dictionary<String, Person> clients;
         private Person currentCustomer;
 
         public ATM()
         {
-            clients = new List<Person>();
+            clients = new Dictionary<String, Person>();
         }
 
         public void addClient(String firstName, String lastName)
         {
             Person person = new Person(firstName, lastName);
-            clients.Add(person);
+            clients.Add(person.getId(), person);
             ATMHelper.generateId(person);
             ATMHelper.createAccount(person.getId());
         }
 
         public void setCurrentCustomer(string id)
         {
-            currentCustomer = ATMHelper.findPerson(id);
+            if (clients.ContainsKey(id))
+                currentCustomer = clients[id];
         }
         public void setCurrentCustomer(Person p){
             if (p == null)
@@ -33,12 +34,12 @@ namespace ATM
             else
                 currentCustomer = p;
         }
-        public List<Person> getClients(){
+        public Dictionary<String, Person> getClients(){
             return clients;
         }
         public void removeClient(string id)
         {
-            clients.Remove(ATMHelper.findPerson(id));
+            clients.Remove(id);
         }
     }
 }
