@@ -6,11 +6,11 @@ using System.Text;
 
 namespace ATM
 {
-    public class ATMHelper
+    public static class ATMHelper
     {
         private static ATM atm;
-        public static  void setAtm(ATM atm) {
-            atm = atm;
+        public static void setAtm(ATM outsideAtm) {
+            atm = outsideAtm;
         }
         public static Person findPerson(string id)
         {
@@ -30,7 +30,7 @@ namespace ATM
         {
             return findPerson(id);
         }
-        public static void generateId(Person person)
+        public static String generateId()
         {
             String newId = "";
             Random random = new Random();
@@ -39,8 +39,7 @@ namespace ATM
                 int randomNumber = random.Next(0, 10);
                 newId += randomNumber.ToString();
             }
-            person.setId(newId);
-            Console.WriteLine($"Your Id is {newId}");
+            return newId;
         }
         
         

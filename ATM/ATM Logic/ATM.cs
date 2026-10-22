@@ -13,13 +13,16 @@ namespace ATM
         public ATM()
         {
             clients = new Dictionary<String, Person>();
+            ATMHelper.setAtm(this);
         }
 
         public void addClient(String firstName, String lastName)
         {
             Person person = new Person(firstName, lastName);
+            person.setId(ATMHelper.generateId());
             clients.Add(person.getId(), person);
-            ATMHelper.generateId(person);
+            String message = person.ToString();
+            Console.WriteLine(message);
             ATMHelper.createAccount(person.getId());
         }
 

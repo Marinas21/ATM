@@ -57,5 +57,9 @@ namespace ATM
         {
             return account.searchCard(cardNumber);
         }
+        override
+        public String ToString() {
+            return $"{this.id} {this.firstName} {this.lastName}";
+        }
     }
 }
