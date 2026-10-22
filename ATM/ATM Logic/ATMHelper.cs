@@ -14,13 +14,8 @@ namespace ATM
         }
         public static Person findPerson(string id)
         {
-            foreach (Person person in atm.getClients())
-            {
-                if (person.isThisPersonsId(id))
-                {
-                    return person;
-                }
-            }
+            Dictionary<String, Person> myDict = atm.getClients();
+            if (myDict.ContainsKey(id)) return myDict[id];
             return null;
         }
         public static void login(string id)
@@ -49,13 +44,9 @@ namespace ATM
         }
         
         
-        public static bool searchCustomerAndSetIt(string id)
+        public static void searchCustomerAndSetIt(string id)
         {
-            foreach (Person p in atm.getClients())
-            {
-                if (p.getId() == id) { atm.setCurrentCustomer(id); return true; }
-            }
-            return false;
+            atm.setCurrentCustomer(id);
         }
         public static void createAccount(string id)
         {
