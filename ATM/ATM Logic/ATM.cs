@@ -44,5 +44,8 @@ namespace ATM
         {
             clients.Remove(id);
         }
+        public Person getPerson() {
+            return currentCustomer;
+        }
     }
 }

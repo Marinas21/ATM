@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATM.Menu_Logic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,7 +30,9 @@ namespace ATM
                     break;
                 case "2":
                     Console.WriteLine("Please insert your id");
-                    ATMHelper.searchCustomerAndSetIt(Console.ReadLine());
+                    bool succesfulLogin = ATMHelper.searchCustomerAndSetIt(Console.ReadLine());
+                    if(succesfulLogin)
+                        InsideMenu.displayMenu(atm.getPerson());
                     break;
                 case "3":
                     Console.WriteLine("Please insert your id");

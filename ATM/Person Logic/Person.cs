@@ -32,7 +32,7 @@ namespace ATM
             if (this.id == id) return true;
             return false;
         }
-        public void setAccount()
+        public void setAccount(Account account)
         {
             this.account = account;
         }
@@ -61,5 +61,6 @@ namespace ATM
         public String ToString() {
             return $"{this.id} {this.firstName} {this.lastName}";
         }
+        
     }
 }
