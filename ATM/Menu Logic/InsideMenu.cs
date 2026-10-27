@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ATM.Menu_Logic
 {
-    internal class InsideMenu
+    public static class InsideMenu
     {
 
         public static void displayMenu(Person p)
@@ -33,6 +33,7 @@ namespace ATM.Menu_Logic
                         while (attemps!=0) {
                             string pin = Console.ReadLine();
                             if (card.checkPin(pin)) {
+                                card.ToString();
                                 break;
                             }
                             attemps--;

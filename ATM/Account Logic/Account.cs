@@ -15,12 +15,14 @@ namespace ATM.NewFolder
             this.id = id;
             this.password = password;
             balance = 0;
+            cards = new List<Card>();
             Console.WriteLine("Account was created succesfully");
         }
         public void generateCard() {
             Console.WriteLine("Choose a PIN please");
             string pin = Console.ReadLine();
             Card card = new Card(pin);
+            Console.WriteLine(card.ToString());
             cards.Add(card);
         }
         public Card searchCard(string cardNumber) {
@@ -35,6 +37,11 @@ namespace ATM.NewFolder
                 balance += c.getBalance();
             }
             return balance;
+        }
+        public bool checkPassword(String inputPassword)
+        {
+            if (inputPassword.Equals(password)) return true;
+                return false;
         }
     }
 }

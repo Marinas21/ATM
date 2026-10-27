@@ -43,15 +43,36 @@ namespace ATM
         }
         
         
-        public static void searchCustomerAndSetIt(string id)
+        public static bool searchCustomerAndSetIt(string id)
         {
-            atm.setCurrentCustomer(id);
+            Person p = findPerson(id);
+            String password = "";
+            int attempts = 3;
+            do
+            {
+                Console.WriteLine("What's your Password?");
+                password = Console.ReadLine();
+                if (p.getAccount().checkPassword(password))
+                {
+                    atm.setCurrentCustomer(id);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"Incorect password, you have {attempts} more attempts");
+                }
+                attempts--;
+            } while (attempts != 0);
+            if (attempts == 0) return false;
+            return true;
         }
         public static void createAccount(string id)
         {
             Console.WriteLine("Please insert your password");
             string password = Console.ReadLine();
             Account account = new Account(id, password);
+            Person p = findPerson(id);
+            p.setAccount(account);
         }
     }
 }

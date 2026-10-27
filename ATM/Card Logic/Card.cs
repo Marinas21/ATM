@@ -51,5 +51,9 @@ namespace ATM
         {
             return pin == this.pin;
         }
+
+        public string ToString() {
+            return pin + " " + cardNumber + " " + expirationDate;
+        }
     }
 }
