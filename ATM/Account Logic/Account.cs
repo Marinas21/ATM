@@ -43,5 +43,10 @@ namespace ATM.NewFolder
             if (inputPassword.Equals(password)) return true;
                 return false;
         }
+        public void getCardsInfo() { 
+            foreach(var c in cards){
+                Console.WriteLine(c.ToString());
+            }
+        }
     }
 }
