@@ -61,6 +61,8 @@ namespace ATM
         public String ToString() {
             return $"{this.id} {this.firstName} {this.lastName}";
         }
-        
+        public void getCardsInfo(){
+            account.getCardsInfo();
+        }
     }
 }

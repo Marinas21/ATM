@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATM.BankDataBase;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,6 +18,7 @@ namespace ATM
             this.balance = 0;
             this.cardNumber = generateCardNumber();
             this.expirationDate = generateExpirationDate();
+            CardsInDataBase.AddCard(this);
         }
         public string getCardNumber()
         {
@@ -54,6 +56,35 @@ namespace ATM
 
         public string ToString() {
             return pin + " " + cardNumber + " " + expirationDate;
+        }
+        public void AddBalance(double amount) {
+            balance += amount;
+        }
+        public bool RemoveBalance(double amount) {
+            if (balance - amount >= 0)
+            {
+                balance -= amount;
+                return true;
+            }
+            else { 
+            Console.WriteLine("The amount is greater than the balance");
+            }
+            return false;
+        }
+        public void DoPayment(Card card, double amount) {
+            try
+            {
+                if (card == null) {
+                    new Exception("The card is invalid");
+                }
+                if (RemoveBalance(amount)) {
+                    card.AddBalance(amount);
+                }
+
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
