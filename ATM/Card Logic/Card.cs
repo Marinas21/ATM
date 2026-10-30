@@ -8,7 +8,7 @@ namespace ATM
     public class Card
     {
         private string pin;
-        private double balance;
+        private decimal balance;
         private string cardNumber;
         private string expirationDate;
 
@@ -40,7 +40,7 @@ namespace ATM
             DateTime expiration = DateTime.Now.AddYears(4);
             return expiration.ToString("MM/yy");
         }
-        public double getBalance()
+        public decimal getBalance()
         {
             return balance;
         }
@@ -57,10 +57,20 @@ namespace ATM
         public string ToString() {
             return pin + " " + cardNumber + " " + expirationDate;
         }
-        public void AddBalance(double amount) {
-            balance += amount;
+        public void AddBalance(decimal amount) {
+            if (amount < 0)
+            {
+                Console.WriteLine("The amount can't be lower than 0!");
+            }
+            else{
+                balance += amount;
+            }
         }
-        public bool RemoveBalance(double amount) {
+        public bool RemoveBalance(decimal amount) {
+            if (amount < 0) {
+                Console.WriteLine("The amount can't be lower than 0!");
+                return false;
+            }
             if (balance - amount >= 0)
             {
                 balance -= amount;
@@ -71,13 +81,17 @@ namespace ATM
             }
             return false;
         }
-        public void DoPayment(Card card, double amount) {
+        public void DoPayment(Card card, decimal amount) {
+            if (amount < 0) {
+                Console.WriteLine("The amount can't be lower than 0!");
+            }
+            else
             try
             {
                 if (card == null) {
-                    new Exception("The card is invalid");
+                    throw new Exception("The card is invalid");
                 }
-                if (RemoveBalance(amount)) {
+                else if (RemoveBalance(amount)) {
                     card.AddBalance(amount);
                 }
 

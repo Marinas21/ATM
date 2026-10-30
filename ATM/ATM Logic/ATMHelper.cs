@@ -48,6 +48,7 @@ namespace ATM
             Person p = findPerson(id);
             String password = "";
             int attempts = 3;
+            if (p == null) return false;
             do
             {
                 Console.WriteLine("What's your Password?");
@@ -59,9 +60,9 @@ namespace ATM
                 }
                 else
                 {
+                    attempts--;
                     Console.WriteLine($"Incorect password, you have {attempts} more attempts");
                 }
-                attempts--;
             } while (attempts != 0);
             if (attempts == 0) return false;
             return true;
