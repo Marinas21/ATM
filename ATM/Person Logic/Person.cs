@@ -50,7 +50,7 @@ namespace ATM
         public void createCard() {
             account.generateCard();
         }
-        public double getBalance() {
+        public decimal getBalance() {
             return account.getTotalBalance();
         }
         public Card searchCard(string cardNumber)

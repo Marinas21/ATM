@@ -35,7 +35,11 @@ namespace ATM.Menu_Logic
                 case "3":
                     Card reciveCard = getCard();
                     amount = GetDoubleInput();
-                    card.DoPayment(reciveCard, amount);
+                    try{
+                        card.DoPayment(reciveCard, amount); }
+                    catch(Exception e) {
+                        Console.WriteLine(e.Message);
+                    }
                     break;
                 case "4":
                     Console.WriteLine($"This card's balance is {card.getBalance()}");

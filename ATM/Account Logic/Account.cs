@@ -31,8 +31,8 @@ namespace ATM.NewFolder
             }
             return null;
         }
-        public double getTotalBalance() {
-            double balance = 0;
+        public decimal getTotalBalance() {
+            decimal balance = 0;
             foreach (Card c in cards) {
                 balance += c.getBalance();
             }
